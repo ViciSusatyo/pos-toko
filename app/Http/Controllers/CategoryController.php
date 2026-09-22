@@ -15,9 +15,6 @@ class CategoryController extends Controller
         return response()->json($categories);
     }
 
-    /**
-     * Menyimpan kategori baru.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([

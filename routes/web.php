@@ -8,8 +8,5 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// CRUD Kategori (JSON API)
 Route::apiResource('categories', CategoryController::class);
-
-// CRUD Produk (JSON API)
 Route::apiResource('products', ProductController::class);

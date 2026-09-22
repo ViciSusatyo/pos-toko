@@ -8,15 +8,8 @@ class DatabaseSeeder extends Seeder
 {
     public function run(): void
     {
-        // 1. Jalankan Seeder Kategori terlebih dahulu
-        //    agar data kategorinya ada
         $this->call(CategorySeeder::class);
-
-        // 2. Jalankan Factory Produk untuk membuat 50
-        //    data dummy produk
         \App\Models\Product::factory(50)->create();
-
-        // 3. Jalankan Seeder Supplier (Tugas Mandiri)
         $this->call(SupplierSeeder::class);
     }
 }

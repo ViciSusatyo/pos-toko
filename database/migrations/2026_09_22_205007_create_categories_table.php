@@ -12,10 +12,7 @@ return new class extends Migration
             $table->id();
 
             $table->string('name')->unique();
-            // Nama kategori (Makanan, Minuman, Kosmetik, dll)
-
             $table->string('slug')->unique();
-            // URL ramah SEO (makanan, minuman)
 
             $table->timestamps();
         });

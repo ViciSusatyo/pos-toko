@@ -22,9 +22,6 @@ class ProductController extends Controller
         return response()->json($query->latest()->paginate(10));
     }
 
-    /**
-     * Menyimpan produk baru.
-     */
     public function store(Request $request)
     {
         $validated = $request->validate([
