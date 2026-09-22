@@ -8,9 +8,6 @@ use Illuminate\Support\Str;
 
 class CategoryController extends Controller
 {
-    /**
-     * Menampilkan semua kategori beserta jumlah produknya.
-     */
     public function index()
     {
         $categories = Category::withCount('products')->get();
@@ -35,9 +32,6 @@ class CategoryController extends Controller
         return response()->json($category, 201);
     }
 
-    /**
-     * Menampilkan detail satu kategori beserta produk-produknya.
-     */
     public function show($id)
     {
         $category = Category::with('products')->findOrFail($id);
@@ -45,9 +39,6 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    /**
-     * Mengupdate kategori.
-     */
     public function update(Request $request, $id)
     {
         $category = Category::findOrFail($id);
@@ -64,9 +55,6 @@ class CategoryController extends Controller
         return response()->json($category);
     }
 
-    /**
-     * Menghapus kategori. Produk terkait ikut terhapus (onDelete cascade).
-     */
     public function destroy($id)
     {
         $category = Category::findOrFail($id);

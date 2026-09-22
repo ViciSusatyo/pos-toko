@@ -7,10 +7,6 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
-    /**
-     * Menampilkan semua produk beserta kategorinya.
-     * Mendukung filter opsional ?category_id= dan pencarian ?search=
-     */
     public function index(Request $request)
     {
         $query = Product::with('category');
@@ -44,9 +40,6 @@ class ProductController extends Controller
         return response()->json($product->load('category'), 201);
     }
 
-    /**
-     * Menampilkan detail satu produk.
-     */
     public function show($id)
     {
         $product = Product::with('category')->findOrFail($id);
@@ -54,9 +47,6 @@ class ProductController extends Controller
         return response()->json($product);
     }
 
-    /**
-     * Mengupdate data produk (misal: ubah harga atau stok).
-     */
     public function update(Request $request, $id)
     {
         $product = Product::findOrFail($id);
@@ -74,9 +64,6 @@ class ProductController extends Controller
         return response()->json($product->load('category'));
     }
 
-    /**
-     * Menghapus produk.
-     */
     public function destroy($id)
     {
         $product = Product::findOrFail($id);
