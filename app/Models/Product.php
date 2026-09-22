@@ -11,9 +11,6 @@ class Product extends Model
 
     protected $fillable = ['category_id', 'name', 'sku', 'price', 'stock'];
 
-    /**
-     * Relasi: Produk ini milik satu kategori
-     */
     public function category()
     {
         return $this->belongsTo(Category::class);
